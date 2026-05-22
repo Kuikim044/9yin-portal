@@ -1,9 +1,24 @@
 import React, { useState } from 'react';
 import './Theme.css';
 import { wikiData} from './data/wikiData';
+import Login from './components/Login';
 
 const App: React.FC = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [activeSection, setActiveSection] = useState<string>('overview');
+  
+  const handleLogin = (password: string) => {
+    if (password === 'exeTestQmnw4587') {
+      setIsAuthenticated(true);
+    } else {
+      alert('Incorrect password');
+    }
+  };
+
+  if (!isAuthenticated) {
+    return <Login onLogin={handleLogin} />;
+  }
+
   const currentData = wikiData[activeSection];
 
   return (
