@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Theme.css';
-import { wikiData, type WikiSection } from './data/wikiData';
+import { wikiData} from './data/wikiData';
 
 const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>('overview');
